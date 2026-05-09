@@ -1,0 +1,50 @@
+# ──────────────────────────────────────────
+# Xcode
+# ──────────────────────────────────────────
+
+# ユーザー固有のプロジェクト設定・状態
+*.xcodeproj/xcuserdata/
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcworkspace/xcuserdata/
+xcuserdata/
+*.xcuserstate
+
+# ビルド成果物
+build/
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip
+
+# ──────────────────────────────────────────
+# Swift Package Manager
+# ──────────────────────────────────────────
+
+# ユーザー固有のSPMワークスペース設定
+.swiftpm/xcode/xcuserdata/
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+
+# ビルドキャッシュ
+.build/
+
+# Package.resolved は意図的にコミットする（再現性確保のため）
+# !Package.resolved
+
+# ──────────────────────────────────────────
+# macOS
+# ──────────────────────────────────────────
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# ──────────────────────────────────────────
+# 環境・秘密情報
+# ──────────────────────────────────────────
+
+*.env
+.env.local
+Secrets.swift
+Config.local.swift
