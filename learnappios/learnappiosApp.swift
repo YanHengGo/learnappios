@@ -14,8 +14,7 @@ struct learnappiosApp: App {
 
     var body: some Scene {
         WindowGroup {
-            // Phase 2 以降で RootView を実装する
-            Text("Phase 1: ビルド確認")
+            RootView(navigator: navigator, deps: deps)
         }
     }
 }

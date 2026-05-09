@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		200608BC97864D4CA8C8157D /* FeatureAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E6339F56BE004209ABF6D726 /* FeatureAuth */; };
+		686D9E813B034B468CD1B1C8 /* CoreData in Frameworks */ = {isa = PBXBuildFile; productRef = 43118CE9B2FA4A3FA6DE53E8 /* CoreData */; };
+		87DAAA56E0A643DD94143312 /* FeatureHome in Frameworks */ = {isa = PBXBuildFile; productRef = 45AFC57082BE4A5688D2C4CA /* FeatureHome */; };
+		B28709DDAE564BFEA7E3E67D /* FeatureSplash in Frameworks */ = {isa = PBXBuildFile; productRef = 6FD64718CD8947599D285124 /* FeatureSplash */; };
+		D38F94278BA14851B807CD7B /* FeatureChildren in Frameworks */ = {isa = PBXBuildFile; productRef = FF4E299D63EF4BCF86FE2628 /* FeatureChildren */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		74C799272FAD4D37001941A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -22,14 +30,6 @@
 			remoteInfo = learnappios;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXBuildFile section */
-		686D9E813B034B468CD1B1C8 /* CoreData in Frameworks */ = {isa = PBXBuildFile; productRef = 43118CE9B2FA4A3FA6DE53E8 /* CoreData */; };
-		B28709DDAE564BFEA7E3E67D /* FeatureSplash in Frameworks */ = {isa = PBXBuildFile; productRef = 6FD64718CD8947599D285124 /* FeatureSplash */; };
-		200608BC97864D4CA8C8157D /* FeatureAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E6339F56BE004209ABF6D726 /* FeatureAuth */; };
-		D38F94278BA14851B807CD7B /* FeatureChildren in Frameworks */ = {isa = PBXBuildFile; productRef = FF4E299D63EF4BCF86FE2628 /* FeatureChildren */; };
-		87DAAA56E0A643DD94143312 /* FeatureHome in Frameworks */ = {isa = PBXBuildFile; productRef = 45AFC57082BE4A5688D2C4CA /* FeatureHome */; };
-/* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		74C799172FAD4D35001941A1 /* learnappios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = learnappios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -603,7 +603,7 @@
 /* Begin XCLocalSwiftPackageReference section */
 		4DD990F9CB76481787FA6E63 /* XCLocalSwiftPackageReference "." */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = ".";
+			relativePath = .;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -612,6 +612,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4DD990F9CB76481787FA6E63 /* XCLocalSwiftPackageReference "." */;
 			productName = CoreData;
+		};
+		45AFC57082BE4A5688D2C4CA /* FeatureHome */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4DD990F9CB76481787FA6E63 /* XCLocalSwiftPackageReference "." */;
+			productName = FeatureHome;
 		};
 		6FD64718CD8947599D285124 /* FeatureSplash */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -627,11 +632,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4DD990F9CB76481787FA6E63 /* XCLocalSwiftPackageReference "." */;
 			productName = FeatureChildren;
-		};
-		45AFC57082BE4A5688D2C4CA /* FeatureHome */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4DD990F9CB76481787FA6E63 /* XCLocalSwiftPackageReference "." */;
-			productName = FeatureHome;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
