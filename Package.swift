@@ -49,7 +49,7 @@ let package = Package(
         // ── Features ─────────────────────────────────────────────────
         .target(name: "FeatureSplash",   dependencies: ["CoreDomain", "CoreUI"]),
         .target(name: "FeatureAuth",     dependencies: ["CoreDomain", "CoreCommon", "CoreUI"]),
-        .target(name: "FeatureChildren", dependencies: ["CoreDomain", "CoreUI"]),
+        .target(name: "FeatureChildren", dependencies: ["CoreDomain", "CoreCommon", "CoreUI"]),
         .target(name: "FeatureDaily",    dependencies: ["CoreDomain", "CoreUI"]),
         .target(name: "FeatureTasks",    dependencies: ["CoreDomain", "CoreUI"]),
         .target(
