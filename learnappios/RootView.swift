@@ -9,6 +9,7 @@ struct RootView: View {
     let navigator: AppNavigator
     let deps: AppDependencies
     @State private var showPrivacyPolicyFromChildren = false
+    @State private var showPrivacyPolicyFromHome = false
 
     var body: some View {
         Group {
@@ -58,8 +59,18 @@ struct RootView: View {
                     archiveTaskUseCase: deps.archiveTaskUseCase,
                     reorderTasksUseCase: deps.reorderTasksUseCase,
                     getCalendarSummaryUseCase: deps.getCalendarSummaryUseCase,
-                    getSummaryUseCase: deps.getSummaryUseCase
+                    getSummaryUseCase: deps.getSummaryUseCase,
+                    getChildrenUseCase: deps.getChildrenUseCase,
+                    logoutUseCase: deps.logoutUseCase,
+                    onChildSwitch: { childId in navigator.root = .home(childId: childId) },
+                    onManageChildren: { navigator.root = .children },
+                    onLoggedOut: { navigator.root = .auth },
+                    onPrivacyPolicy: { showPrivacyPolicyFromHome = true }
                 )
+                .id(childId)
+                .sheet(isPresented: $showPrivacyPolicyFromHome) {
+                    PrivacyPolicyView()
+                }
             }
         }
         .animation(.easeInOut(duration: 0.3), value: navigator.root)
