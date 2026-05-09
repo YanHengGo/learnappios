@@ -7,7 +7,7 @@ struct DailyTaskRowView: View {
     let onMinutesChange: (String) -> Void
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: 12) {
             Toggle(isOn: Binding(
                 get: { row.isDone },
                 set: { _ in onToggle() }
@@ -15,7 +15,6 @@ struct DailyTaskRowView: View {
                 EmptyView()
             }
             .labelsHidden()
-            .frame(width: 44)
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(row.name)
