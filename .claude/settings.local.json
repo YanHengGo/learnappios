@@ -11,7 +11,8 @@
       "Bash(xcodebuild -project /Users/yanheng/dev/learnappios/learnappios.xcodeproj -scheme learnappios -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 17' build)",
       "Bash(find Sources/CoreUI Sources/FeatureAuth Sources/FeatureSplash learnappios/RootView.swift -type f -name *.swift)",
       "Bash(git rm:*)",
-      "Bash(xcodebuild -project learnappios.xcodeproj -scheme learnappios -sdk iphonesimulator build)"
+      "Bash(xcodebuild -project learnappios.xcodeproj -scheme learnappios -sdk iphonesimulator build)",
+      "Bash(git remote:*)"
     ]
   }
 }
