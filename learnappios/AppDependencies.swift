@@ -8,7 +8,7 @@ final class AppDependencies {
     let keychain = KeychainStore()
 
     lazy var apiClient = APIClient(
-        baseURL: URL(string: "https://YOUR_API_HOST")!,  // TODO: 環境設定で差し替え
+        baseURL: URL(string: "https://ts-memo-api-1.onrender.com")!,
         tokenProvider: { [keychain] in keychain.load() }
     )
 
