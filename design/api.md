@@ -43,11 +43,20 @@ struct TokenDTO: Decodable {
     let token: String
 }
 
+// signup レスポンスはトークンなし。token 取得には別途 login を呼ぶ（Android 実態）
 struct SignupDTO: Decodable {
-    let token: String
+    let user: SignupUserDTO
+}
+struct SignupUserDTO: Decodable {
+    let id: String
+    let email: String
 }
 
+// me レスポンスは { user: {...} } のネスト構造（Android 実態）
 struct MeDTO: Decodable {
+    let user: UserDTO
+}
+struct UserDTO: Decodable {
     let id: String
     let email: String
     let displayName: String?
@@ -65,8 +74,7 @@ struct MeDTO: Decodable {
 | GET | `/api/v1/children` | - | `[ChildDTO]` |
 | POST | `/api/v1/children` | `CreateChildRequest` | `ChildDTO` |
 | PUT | `/api/v1/children/{id}` | `UpdateChildRequest` | `ChildDTO` |
-| PATCH | `/api/v1/children/{childId}` | `[String: Any?]` | `ChildDTO` |
-| DELETE | `/api/v1/children/{childId}` | - | 204 |
+| DELETE | `/api/v1/children/{id}` | - | 204 |
 
 ```swift
 struct ChildDTO: Decodable {
@@ -97,7 +105,7 @@ struct UpdateChildRequest: Encodable {
 | POST | `/api/v1/children/{childId}/tasks` | - | `CreateTaskRequest` | `TaskDTO` |
 | PUT | `/api/v1/children/{childId}/tasks/reorder` | - | `ReorderRequest` | 204 |
 | PUT | `/api/v1/children/{childId}/tasks/{taskId}` | - | `UpdateTaskRequest` | `TaskDTO` |
-| PATCH | `/api/v1/tasks/{taskId}` | - | `[String: Any?]` | `TaskDTO` |
+| PATCH | `/api/v1/tasks/{taskId}` | - | `ArchiveTaskRequest` | 204 |
 
 ```swift
 struct TaskDTO: Decodable {
@@ -129,18 +137,27 @@ struct UpdateTaskRequest: Encodable {
     let subject: String
     let defaultMinutes: Int
     let daysMask: Int
+    let isArchived: Bool   // Android 実態: UpdateTaskRequest に含まれる
     let startDate: String?
     let endDate: String?
 }
 
+// Android 実態: { orders: [{ task_id, sort_order }] }（ids 配列ではない）
 struct ReorderRequest: Encodable {
-    let ids: [String]
+    let orders: [ReorderItem]
+}
+struct ReorderItem: Encodable {
+    let taskId: String
+    let sortOrder: Int
 }
 ```
 
 **アーカイブ操作:**
 ```swift
-// PATCH /api/v1/tasks/{taskId}  body: {"isArchived": true}
+// PATCH /api/v1/tasks/{taskId}  body: {"is_archived": true}
+struct ArchiveTaskRequest: Encodable {
+    let isArchived: Bool
+}
 ```
 
 ---
@@ -184,7 +201,8 @@ struct DailyItemRequest: Encodable {
 }
 
 struct UpdateDailyResponseDTO: Decodable {
-    // サーバー仕様に従う
+    let date: String
+    let savedCount: Int
 }
 ```
 
