@@ -12,7 +12,7 @@ public struct TaskDTO: Decodable {
     public let isArchived: Bool
     public let startDate: String?
     public let endDate: String?
-    public let sortOrder: Int
+    public let sortOrder: Int?
 }
 
 extension TaskDTO {
@@ -20,6 +20,6 @@ extension TaskDTO {
         Task(id: id, name: name, description: description,
              subject: subject, defaultMinutes: defaultMinutes,
              daysMask: daysMask, isArchived: isArchived,
-             startDate: startDate, endDate: endDate, sortOrder: sortOrder)
+             startDate: startDate, endDate: endDate, sortOrder: sortOrder ?? 0)
     }
 }
