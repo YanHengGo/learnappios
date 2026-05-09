@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(python3:*)",
+      "Bash(xcodebuild -project learnappios.xcodeproj -scheme learnappios -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 17' build)",
+      "Bash(find Sources learnappios/AppDependencies.swift learnappios/AppNavigator.swift -type f -name *.swift)",
+      "Bash(git add:*)"
+    ]
+  }
+}
