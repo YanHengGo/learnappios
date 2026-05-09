@@ -18,8 +18,8 @@ public struct HomeView: View {
     }
 
     public var body: some View {
-        NavigationStack {
-            TabView {
+        TabView {
+            NavigationStack {
                 DailyView(
                     viewModel: DailyViewModel(
                         childId: childId,
@@ -27,19 +27,23 @@ public struct HomeView: View {
                         updateDailyLogUseCase: updateDailyLogUseCase
                     )
                 )
-                .tabItem {
-                    Label("日々の記録", systemImage: "calendar")
-                }
+            }
+            .tabItem {
+                Label("日々の記録", systemImage: "calendar")
+            }
 
+            NavigationStack {
                 Text("タスク管理（Phase 5）")
-                    .tabItem {
-                        Label("タスク", systemImage: "checkmark.circle")
-                    }
+            }
+            .tabItem {
+                Label("タスク", systemImage: "checkmark.circle")
+            }
 
+            NavigationStack {
                 Text("集計（Phase 6）")
-                    .tabItem {
-                        Label("集計", systemImage: "chart.bar")
-                    }
+            }
+            .tabItem {
+                Label("集計", systemImage: "chart.bar")
             }
         }
     }
