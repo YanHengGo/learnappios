@@ -56,7 +56,9 @@ struct RootView: View {
                     createTaskUseCase: deps.createTaskUseCase,
                     updateTaskUseCase: deps.updateTaskUseCase,
                     archiveTaskUseCase: deps.archiveTaskUseCase,
-                    reorderTasksUseCase: deps.reorderTasksUseCase
+                    reorderTasksUseCase: deps.reorderTasksUseCase,
+                    getCalendarSummaryUseCase: deps.getCalendarSummaryUseCase,
+                    getSummaryUseCase: deps.getSummaryUseCase
                 )
             }
         }

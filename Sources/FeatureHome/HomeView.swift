@@ -2,6 +2,7 @@ import SwiftUI
 import CoreDomain
 import FeatureDaily
 import FeatureTasks
+import FeatureSummary
 
 public struct HomeView: View {
     let childId: String
@@ -14,6 +15,9 @@ public struct HomeView: View {
     let updateTaskUseCase: UpdateTaskUseCase
     let archiveTaskUseCase: ArchiveTaskUseCase
     let reorderTasksUseCase: ReorderTasksUseCase
+    // Summary
+    let getCalendarSummaryUseCase: GetCalendarSummaryUseCase
+    let getSummaryUseCase: GetSummaryUseCase
 
     public init(
         childId: String,
@@ -23,7 +27,9 @@ public struct HomeView: View {
         createTaskUseCase: CreateTaskUseCase,
         updateTaskUseCase: UpdateTaskUseCase,
         archiveTaskUseCase: ArchiveTaskUseCase,
-        reorderTasksUseCase: ReorderTasksUseCase
+        reorderTasksUseCase: ReorderTasksUseCase,
+        getCalendarSummaryUseCase: GetCalendarSummaryUseCase,
+        getSummaryUseCase: GetSummaryUseCase
     ) {
         self.childId = childId
         self.getDailyViewUseCase = getDailyViewUseCase
@@ -33,6 +39,8 @@ public struct HomeView: View {
         self.updateTaskUseCase = updateTaskUseCase
         self.archiveTaskUseCase = archiveTaskUseCase
         self.reorderTasksUseCase = reorderTasksUseCase
+        self.getCalendarSummaryUseCase = getCalendarSummaryUseCase
+        self.getSummaryUseCase = getSummaryUseCase
     }
 
     public var body: some View {
@@ -67,7 +75,15 @@ public struct HomeView: View {
             }
 
             NavigationStack {
-                Text("集計（Phase 6）")
+                SummaryView(
+                    viewModel: SummaryViewModel(
+                        childId: childId,
+                        getCalendarSummaryUseCase: getCalendarSummaryUseCase,
+                        getSummaryUseCase: getSummaryUseCase
+                    ),
+                    getDailyViewUseCase: getDailyViewUseCase,
+                    updateDailyLogUseCase: updateDailyLogUseCase
+                )
             }
             .tabItem {
                 Label("集計", systemImage: "chart.bar")
