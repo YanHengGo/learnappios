@@ -1,20 +1,38 @@
 import SwiftUI
 import CoreDomain
 import FeatureDaily
+import FeatureTasks
 
 public struct HomeView: View {
     let childId: String
+    // Daily
     let getDailyViewUseCase: GetDailyViewUseCase
     let updateDailyLogUseCase: UpdateDailyLogUseCase
+    // Tasks
+    let getTasksUseCase: GetTasksUseCase
+    let createTaskUseCase: CreateTaskUseCase
+    let updateTaskUseCase: UpdateTaskUseCase
+    let archiveTaskUseCase: ArchiveTaskUseCase
+    let reorderTasksUseCase: ReorderTasksUseCase
 
     public init(
         childId: String,
         getDailyViewUseCase: GetDailyViewUseCase,
-        updateDailyLogUseCase: UpdateDailyLogUseCase
+        updateDailyLogUseCase: UpdateDailyLogUseCase,
+        getTasksUseCase: GetTasksUseCase,
+        createTaskUseCase: CreateTaskUseCase,
+        updateTaskUseCase: UpdateTaskUseCase,
+        archiveTaskUseCase: ArchiveTaskUseCase,
+        reorderTasksUseCase: ReorderTasksUseCase
     ) {
         self.childId = childId
         self.getDailyViewUseCase = getDailyViewUseCase
         self.updateDailyLogUseCase = updateDailyLogUseCase
+        self.getTasksUseCase = getTasksUseCase
+        self.createTaskUseCase = createTaskUseCase
+        self.updateTaskUseCase = updateTaskUseCase
+        self.archiveTaskUseCase = archiveTaskUseCase
+        self.reorderTasksUseCase = reorderTasksUseCase
     }
 
     public var body: some View {
@@ -33,7 +51,16 @@ public struct HomeView: View {
             }
 
             NavigationStack {
-                Text("タスク管理（Phase 5）")
+                TasksView(
+                    viewModel: TasksViewModel(
+                        childId: childId,
+                        getTasksUseCase: getTasksUseCase,
+                        createTaskUseCase: createTaskUseCase,
+                        updateTaskUseCase: updateTaskUseCase,
+                        archiveTaskUseCase: archiveTaskUseCase,
+                        reorderTasksUseCase: reorderTasksUseCase
+                    )
+                )
             }
             .tabItem {
                 Label("タスク", systemImage: "checkmark.circle")

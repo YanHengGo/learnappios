@@ -51,7 +51,12 @@ struct RootView: View {
                 HomeView(
                     childId: childId,
                     getDailyViewUseCase: deps.getDailyViewUseCase,
-                    updateDailyLogUseCase: deps.updateDailyLogUseCase
+                    updateDailyLogUseCase: deps.updateDailyLogUseCase,
+                    getTasksUseCase: deps.getTasksUseCase,
+                    createTaskUseCase: deps.createTaskUseCase,
+                    updateTaskUseCase: deps.updateTaskUseCase,
+                    archiveTaskUseCase: deps.archiveTaskUseCase,
+                    reorderTasksUseCase: deps.reorderTasksUseCase
                 )
             }
         }
