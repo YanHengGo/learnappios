@@ -3,6 +3,7 @@ import CoreDataStore
 import FeatureSplash
 import FeatureAuth
 import FeatureChildren
+import FeatureHome
 
 struct RootView: View {
     let navigator: AppNavigator
@@ -47,8 +48,11 @@ struct RootView: View {
                 }
 
             case .home(let childId):
-                // Phase 4 以降で実装
-                Text("ホーム: \(childId)（Phase 4）")
+                HomeView(
+                    childId: childId,
+                    getDailyViewUseCase: deps.getDailyViewUseCase,
+                    updateDailyLogUseCase: deps.updateDailyLogUseCase
+                )
             }
         }
         .animation(.easeInOut(duration: 0.3), value: navigator.root)
