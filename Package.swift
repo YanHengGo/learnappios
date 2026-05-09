@@ -54,7 +54,7 @@ let package = Package(
         .target(name: "FeatureTasks",    dependencies: ["CoreDomain", "CoreCommon", "CoreUI"]),
         .target(
             name: "FeatureSummary",
-            dependencies: ["CoreDomain", "CoreUI", "FeatureDaily"]
+            dependencies: ["CoreDomain", "CoreCommon", "CoreUI", "FeatureDaily"]
         ),
         .target(
             name: "FeatureHome",
