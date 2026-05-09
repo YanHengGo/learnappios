@@ -59,7 +59,7 @@ let package = Package(
         .target(
             name: "FeatureHome",
             dependencies: [
-                "CoreDomain", "CoreUI",
+                "CoreDomain", "CoreModel", "CoreCommon", "CoreUI",
                 "FeatureDaily", "FeatureTasks", "FeatureSummary",
             ]
         ),
